@@ -2,9 +2,13 @@ import React from 'react';
 import {Grid} from '@material-ui/core';
 import Product from './Product/Product';
 import useStyles from './styles';
+import Loading from '../../lib/Loading/Loading';
 
 const Products = ({products, onAddToCart}) => {
   const classes = useStyles();
+
+  if(products.length === 0) return <Loading/>;
+  
   return (
     <main className={classes.content}>
       <div className={classes.toolbar}/>
